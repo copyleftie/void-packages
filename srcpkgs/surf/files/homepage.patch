@@ -1,0 +1,13 @@
+diff --git a/surf.c b/surf.c
+index 0f8b9c9..67c3b1e 100644
+--- a/surf.c
++++ b/surf.c
+@@ -2033,7 +2035,7 @@ main(int argc, char *argv[])
+ 	if (argc > 0)
+ 		arg.v = argv[0];
+ 	else
+-		arg.v = "about:blank";
++		arg.v = "file:///home/copyleftie/.surf/about-blank.html";
+ 
+ 	setup();
+ 	c = newclient(NULL);

@@ -1,16 +1,20 @@
 # Template file for 'tabbed'
 pkgname=tabbed
 version=0.6
-revision=3
+revision=master
 homepage="http://tools.suckless.org/${pkgname}/"
-distfiles="http://dl.suckless.org/tools/${pkgname}-${version}.tar.gz"
+distfiles="https://git.suckless.org/tabbed/snapshot/tabbed-master.tar.gz"
+wrksrc="tabbed-master"
 build_style=gnu-makefile
 make_build_args="INCS=-I. LIBS=-lX11"
-makedepends="libX11-devel"
+makedepends="libX11-devel libXft-devel freetype-devel"
 short_desc="Tab interface for application supporting Xembed"
 maintainer='Juan RP <xtraeme@voidlinux.eu>'
 license="MIT"
-checksum="7651ea3acbec5d6a25469e8665da7fc70aba2b4fa61a2a6a5449eafdfd641c42"
+checksum=993a31257046f1d853f02723ec5bf121ffd61d4fa35041aee5a42c7bb05f7dae
+
+build_options="copyleftie"
+desc_option_copyleftie="Apply copyleftie's config.h"
 
 pre_build() {
 	sed -i 's|-O0 ||g' config.mk
@@ -19,6 +23,15 @@ pre_build() {
 	sed -i 's|^LDFLAGS =|override LDFLAGS +=|g' config.mk
 	# Remove BSD_SOURCE warning
 	sed -i 's/-D_BSD_SOURCE/-D_DEFAULT_SOURCE/g' config.mk
+	if [ "$build_option_copyleftie" ] ; then
+		cp ${FILESDIR}/config.h.copyleftie config.h
+	else
+		cp ${FILESDIR}/config.h config.h
+	fi
+}
+
+do_build() {
+	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXft -lfontconfig"
 }
 
 post_install() {

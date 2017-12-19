@@ -1,0 +1,20 @@
+diff --git a/surf.c b/surf.c
+index 0f8b9c9..67c3b1e 100644
+--- a/surf.c
++++ b/surf.c
+@@ -603,11 +605,11 @@ updatetitle(Client *c)
+ 		getpagestats(c);
+ 
+ 		if (c->progress != 100)
+-			title = g_strdup_printf("[%i%%] %s:%s | %s",
+-			        c->progress, togglestats, pagestats, name);
++			title = g_strdup_printf("[%i%%] %s | %s:%s",
++			        c->progress, name, togglestats, pagestats);
+ 		else
+-			title = g_strdup_printf("%s:%s | %s",
+-			        togglestats, pagestats, name);
++			title = g_strdup_printf("%s | %s:%s",
++			        name, togglestats, pagestats);
+ 
+ 		gtk_window_set_title(GTK_WINDOW(c->win), title);
+ 		g_free(title);

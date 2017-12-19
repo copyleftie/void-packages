@@ -1,17 +1,29 @@
 # Template file for 'dwm'
 pkgname=dwm
 version=6.1
-revision=1
+revision=master
 homepage="http://dwm.suckless.org"
-distfiles="https://dl.suckless.org/dwm/dwm-$version.tar.gz"
+distfiles="https://git.suckless.org/dwm/snapshot/dwm-master.tar.gz"
+wrksrc="dwm-master"
 makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="A dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="MIT"
-checksum=c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe
+checksum=a1fa093d446c9fa0629509b64db483ccf55ec12b982326c32713c406d88bfcd0
+
+build_options="copyleftie"
+desc_option_copyleftie="Apply copyleftie's patches and config.h"
 
 do_build() {
-	cp ${FILESDIR}/config.h config.h
+	if [ "$build_option_copyleftie" ] ; then
+		cp ${FILESDIR}/config.h.copyleftie config.h 
+		patch -Nl < ${FILESDIR}/attachaside.patch
+		patch -Nl < ${FILESDIR}/bottomstack.patch
+		patch -Nl < ${FILESDIR}/fakefullscreen.patch
+		patch -Nl < ${FILESDIR}/uselessgap.patch
+	else
+		cp ${FILESDIR}/config.h config.h
+	fi
 	sed -i "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" config.mk
 	sed -i "/LDFLAGS/s|\-s|$LDFLAGS|g" config.mk
 	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXinerama -lXft -lfontconfig"
@@ -20,6 +32,5 @@ do_build() {
 do_install() {
 	make PREFIX=/usr DESTDIR=$DESTDIR install
 	vinstall README 644 usr/share/doc/$pkgname
-	vinstall ${FILESDIR}/dwm.desktop 644 usr/share/xsessions
 	vlicense LICENSE
 }

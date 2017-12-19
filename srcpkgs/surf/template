@@ -1,21 +1,30 @@
 # Template file for 'surf'
 pkgname=surf
 version=2.0
-revision=1
+revision=master
 build_style=gnu-makefile
 hostmakedepends="pkg-config"
-makedepends="webkit2gtk-devel"
+makedepends="webkit2gtk-devel gcr-devel glib-devel"
 short_desc="Simple web browser based on WebKit/GTK+"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="MIT"
 homepage="http://surf.suckless.org"
-distfiles="http://dl.suckless.org/surf/$pkgname-$version.tar.gz"
-checksum=faee4c7a62c38fc9791eff1ad06787c3c9b2b79f338806827f5152a7bc54951d
+distfiles="https://git.suckless.org/surf/snapshot/surf-surf-webkit2.tar.gz"
+wrksrc="surf-surf-webkit2"
+checksum=65d465a6fd466a35b146b45d5da4ecd1e017a344673bbc6d8fd4283f06ad8e7e
+
+build_options="copyleftie"
+desc_option_copyleftie="Apply copyleftie's patches and config.h"
 
 do_build() {
 	sed -i 's,/usr/include,,g;s,/usr/lib,,g' config.mk
 	sed -i "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" config.mk
 	sed -i "/LDFLAGS/s|\-s|$LDFLAGS|g" config.mk
+	if [ "$build_option_copyleftie" ] ; then
+		cp ${FILESDIR}/config.h.copyleftie config.h
+		patch -Nl < ${FILESDIR}/spacesearch.patch
+		patch -Nl < ${FILESDIR}/copyleftie.patch
+	fi
 	make CC=$CC ${makejobs}
 }
 
