@@ -23,7 +23,8 @@ do_build() {
 	if [ "$build_option_copyleftie" ] ; then
 		cp ${FILESDIR}/config.h.copyleftie config.h
 		patch -Nl < ${FILESDIR}/spacesearch.patch
-		patch -Nl < ${FILESDIR}/copyleftie.patch
+		patch -Nl < ${FILESDIR}/homepage.patch
+		patch -Nl < ${FILESDIR}/pagetitlefirst.patch
 	fi
 	make CC=$CC ${makejobs}
 }
