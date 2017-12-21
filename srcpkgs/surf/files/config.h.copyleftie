@@ -150,8 +150,9 @@ static Key keys[] = {
 	{ MODKEY,                GDK_KEY_b,      scroll,     { .i = 'U' } },
 	{ MODKEY,                GDK_KEY_space,  scroll,     { .i = 'D' } },
 	{ MODKEY,                GDK_KEY_i,      scroll,     { .i = 'r' } },
-	{ MODKEY,                GDK_KEY_u,      scroll,     { .i = 'l' } },
-
+	
+	{ MODKEY,                GDK_KEY_u,      scroll,     { .i = 'U' } },
+	{ MODKEY,                GDK_KEY_d,      scroll,     { .i = 'D' } },
 
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_j,      zoom,       { .i = -1 } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_k,      zoom,       { .i = +1 } },
