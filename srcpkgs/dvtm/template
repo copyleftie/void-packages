@@ -1,17 +1,22 @@
 # Template file for 'dvtm'
 pkgname=dvtm
 version=0.15
-revision=1
+revision=master
 makedepends="ncurses-devel"
 depends="ncurses" # needs tic at post-install
 short_desc="Tiling window manager for the console"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 homepage="http://www.brain-dump.org/projects/dvtm/"
 license="MIT"
-distfiles="http://www.brain-dump.org/projects/dvtm/$pkgname-$version.tar.gz"
-checksum=8f2015c05e2ad82f12ae4cf12b363d34f527a4bbc8c369667f239e4542e1e510
+distfiles="http://repo.or.cz/dvtm.git/snapshot/refs/heads/master.tar.gz"
+wrksrc="dvtm-master"
+checksum=fb5e029792da8d77ffcf23564fefa485353b329a7e48292d98732d01942fa6f3
 
+do_extract() {
+	tar -xf ${XBPS_SRCDISTDIR}/dvtm-${version}/master.tar.gz --strip-components 1
+}
 do_build() {
+	cp ${FILESDIR}/config.h config.h
 	# Do not run tic, useless in build environment.
 	sed -i 's,tic,/bin/true,g' Makefile
 	make CC=$CC V=1
