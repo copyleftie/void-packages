@@ -9,7 +9,7 @@ makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="A dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="MIT"
-checksum=a1fa093d446c9fa0629509b64db483ccf55ec12b982326c32713c406d88bfcd0
+checksum=d72b049178e623fbf5a2f47ff4dbf92a79233267cf2d66e9e4181bdd8cfa9e1f
 
 build_options="copyleftie"
 desc_option_copyleftie="Apply copyleftie's patches and config.h"
