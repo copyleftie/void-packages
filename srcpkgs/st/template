@@ -13,7 +13,7 @@ license="MIT"
 homepage="https://st.suckless.org"
 distfiles="https://git.suckless.org/st/snapshot/st-master.tar.gz"
 wrksrc="st-master"
-checksum=57d6af89a79b5d14c27872432a8d167ba33f461b3e67158bb346d0b8fd1bca82
+checksum=a12d824927332c9f6666b3a432e6dd17f0e8fd51fb4fa8c61a48aee88e91d46a
 
 build_options="copyleftie"
 desc_option_copyleftie="Apply copyleftie's patches and config.h"
