@@ -19,7 +19,7 @@ do_build() {
 		cp ${FILESDIR}/config.h.copyleftie config.h 
 		patch -Nl < ${FILESDIR}/attachaside.patch
 		patch -Nl < ${FILESDIR}/bottomstack.patch
-		patch -Nl < ${FILESDIR}/fakefullscreen.patch
+		# patch -Nl < ${FILESDIR}/fakefullscreen.patch
 		patch -Nl < ${FILESDIR}/uselessgap.patch
 	else
 		cp ${FILESDIR}/config.h config.h
