@@ -11,7 +11,7 @@ build_style=waf
 configure_args="--confdir=/etc/mpv --docdir=/usr/share/examples/mpv
  --enable-dvdread --enable-dvdnav --enable-dvbin --enable-sndio
  --disable-oss-audio --disable-sdl2 --disable-pulse --disable-jack
- --disable-wayland --disable-gl-wayland --disable-libbluray --disable-v4l
+ --disable-wayland --disable-gl-wayland --disable-libbluray --disable-libv4l2
  $(vopt_enable smb libsmbclient) $(vopt_enable vapoursynth)
  --enable-libmpv-shared"
 hostmakedepends="pkg-config python-docutils perl"
