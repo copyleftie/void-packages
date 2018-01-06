@@ -5,7 +5,9 @@ revision=1
 wrksrc="webkitgtk-$version"
 build_style=cmake
 configure_args="-DPORT=GTK -DENABLE_GTKDOC=OFF -DCMAKE_LINKER=${XBPS_CROSS_TRIPLET}-gcc
- -DUSE_GSTREAMER_GL=OFF"
+ -DUSE_LIBHYPHEN=OFF -DUSE_LIBNOTIFY=OFF -DUSE_LIBSECRET=OFF -DENABLE_VIDEO=OFF
+ -DENABLE_WEB_AUDIO=OFF -DENABLE_JIT=OFF -DENABLE_GEOLOCATION=OFF
+ -DENABLE_PLUGIN_PROCESS_GTK2=OFF -DENABLE_SPELLCHECK=OFF"
 short_desc="GTK+3 port of the WebKit2 browser engine"
 maintainer="Enno Boland <gottox@voidlinux.eu>"
 homepage="https://webkitgtk.org/"
@@ -18,13 +20,11 @@ nodebug=1
 
 CXXFLAGS="-Wno-expansion-to-defined"
 
-hostmakedepends="perl python pkg-config intltool gperf flex ruby glib-devel geoclue2"
+hostmakedepends="perl python pkg-config intltool gperf flex ruby glib-devel"
 makedepends="
- at-spi2-core-devel libjpeg-turbo-devel libpng-devel sqlite-devel
- harfbuzz-devel gst-plugins-base1-devel libsoup-devel libxslt-devel
- gnutls-devel icu-devel enchant-devel dbus-glib-devel libwebp-devel
- gtk+-devel gtk+3-devel libgudev-devel libsecret-devel ruby-devel
- geoclue2-devel libnotify-devel hyphen-devel"
+ at-spi2-core-devel libjpeg-turbo-devel libpng-devel sqlite-devel libsoup-devel
+ libxslt-devel gnutls-devel icu-devel dbus-glib-devel libwebp-devel gtk+3-devel
+ libgudev-devel ruby-devel"
 
 case "$XBPS_TARGET_MACHINE" in
 armv[56]*) configure_args+=" -DENABLE_JIT=0"
