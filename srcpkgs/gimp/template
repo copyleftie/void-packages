@@ -5,13 +5,13 @@ revision=1
 lib32disabled=yes
 build_style=gnu-configure
 configure_args="--without-aa --without-gvfs --enable-gimp-console
- --enable-python --with-gif-compression=lzw --with-libcurl --enable-mp"
+ --disable-python --with-gif-compression=lzw --with-libcurl --enable-mp
+ --without-webkit  --without-print --without-poppler --without-cairo-pdf
+ --without-alsa --without-dbus --without-gudev"
 hostmakedepends="pkg-config intltool"
-makedepends="libpng-devel gtk+-devel lcms2-devel
- alsa-lib-devel dbus-glib-devel libXmu-devel libXcursor-devel
- libexif-devel libsoup-devel webkitgtk2-devel libwmf-devel librsvg-devel
- libmng-devel libXpm-devel libcurl-devel babl-devel gegl-devel pygtk-devel
- libgudev-devel jasper-devel poppler-glib-devel ghostscript-devel iso-codes"
+makedepends="libpng-devel gtk+-devel lcms2-devel libXmu-devel libXcursor-devel
+ libexif-devel libwmf-devel librsvg-devel libmng-devel libXpm-devel
+ libcurl-devel babl-devel gegl-devel jasper-devel iso-codes"
 short_desc="The GNU image manipulation program"
 conf_files="/etc/gimp/2.0/*"
 depends="desktop-file-utils hicolor-icon-theme iso-codes"
@@ -37,15 +37,5 @@ gimp-devel_package() {
 		vmove usr/share/gtk-doc
 		vmove usr/share/aclocal
 		vmove "usr/lib/*.so"
-	}
-}
-gimp-python_package() {
-	lib32disabled=yes
-	depends="pygtk"
-	pycompile_dirs="usr/lib/gimp/2.0"
-	short_desc+=" - python bindings"
-	pkg_install() {
-		vmove usr/lib/gimp/2.0/python
-		vmove "usr/lib/gimp/2.0/plug-ins/*.py"
 	}
 }
