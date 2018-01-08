@@ -3,15 +3,15 @@ pkgname=wxWidgets
 version=3.0.3.1
 revision=3
 build_style=gnu-configure
-configure_args="--enable-unicode --with-opengl --with-sdl --with-libmspack
- --with-libnotify"
+configure_args="--enable-unicode --with-opengl --without-sdl --with-libmspack
+ --without-libnotify --without-webkit"
 short_desc="The wxWidgets GUI toolkit library (version 3)"
 maintainer="Martin Riese <grauehaare@gmx.de>"
 license="wxWindows"
 homepage="https://www.wxwidgets.org/"
 hostmakedepends="pkg-config"
-makedepends="gtk+-devel libjpeg-turbo-devel tiff-devel libSM-devel libnotify-devel
- libXinerama-devel libmspack-devel SDL-devel glu-devel webkitgtk2-devel"
+makedepends="gtk+-devel libjpeg-turbo-devel tiff-devel libSM-devel
+libXinerama-devel libmspack-devel glu-devel"
 distfiles="https://github.com/wxWidgets/wxWidgets/releases/download/v${version}/wxWidgets-${version}.tar.bz2"
 checksum=3164ad6bc5f61c48d2185b39065ddbe44283eb834a5f62beb13f1d0923e366e4
 
