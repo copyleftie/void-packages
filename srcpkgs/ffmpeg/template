@@ -47,15 +47,15 @@ do_configure() {
 
 	./configure --prefix=/usr --disable-debug --enable-gpl --enable-gnutls \
 		--enable-version3 --enable-runtime-cpudetect --enable-libx264 \
-		$(vopt_if vpx --enable-libvpx) --enable-libtheora  --enable-shared \
-		--enable-static --enable-libxcb --enable-libass --enable-libopus \
-		$(vopt_if faac '--enable-nonfree --enable-libfaac') \
+		$(vopt_if vpx --enable-libvpx) --enable-shared --enable-static \
+		--enable-libxcb --enable-libass --enable-libopus --enable-avresample \
+		$(vopt_if faac '--enable-nonfree --enable-libfaac') --disable-jack \
 		$(vopt_if fdk_aac '--enable-nonfree --enable-libfdk-aac') \
 		--disable-libopencore_amrnb --disable-libopencore_amrwb \
-		--disable-libopenjpeg --enable-postproc --disable-jack ${_args} \
+		--disable-libopenjpeg --enable-postproc ${_args} \
 		$(vopt_if x265 '--enable-libx265' '--disable-libx265') \
 		$(vopt_if v4l2 '--enable-libv4l2' '--disable-libv4l2') \
-		$(vopt_enable vaapi) $(vopt_enable vdpau) --enable-avresample
+		$(vopt_enable vaapi) $(vopt_enable vdpau)
 }
 do_build() {
 	rm ${XBPS_WRAPPERDIR}/strip
