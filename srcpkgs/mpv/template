@@ -12,8 +12,8 @@ configure_args="--confdir=/etc/mpv --docdir=/usr/share/examples/mpv
  --enable-dvdread --enable-dvdnav --enable-dvbin --enable-sndio
  --disable-oss-audio --disable-sdl2 --disable-pulse --disable-jack
  --disable-wayland --disable-gl-wayland --disable-libbluray --disable-libv4l2
- $(vopt_enable smb libsmbclient) $(vopt_enable vapoursynth)
- --enable-libmpv-shared --disable-vdpau"
+ --enable-libmpv-shared --disable-vdpau $(vopt_enable smb libsmbclient)
+ $(vopt_enable vapoursynth)"
 hostmakedepends="pkg-config python-docutils perl"
 makedepends="
  ffmpeg-devel libass-devel lcms2-devel libXinerama-devel lua52-devel libXv-devel
