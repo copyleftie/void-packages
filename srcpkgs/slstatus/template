@@ -1,6 +1,6 @@
 # Template file for 'slstatus'
 pkgname=slstatus
-version=2.0
+version=20180106
 revision=master
 build_style=gnu-makefile
 short_desc="Suckless status monitor for dwm"
