@@ -28,8 +28,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",        NULL,       NULL,       0,            1,           -1 },
-	{ "Tor Browser", NULL,       NULL,       0,            1,           -1 },
 	{ "mpv",         NULL,       NULL,       0,            1,           -1 },
 	{ "ffplay",      NULL,       NULL,       0,            1,           -1 },
 	{ "VISUAL",      NULL,       NULL,       0,            1,           -1 },
@@ -45,8 +43,8 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
+	//{ "TTT",      bstack },
+	//{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -71,8 +69,6 @@ static const char *viscmd[]     = { "viscmd", NULL };
 static const char *tviscmd[]    = { "viscmd", "tabbed", NULL };
 static const char *ytcmd[]      = { "ytcmd", NULL };
 static const char *tytcmd[]     = { "ytcmd", "tabbed", NULL };
-static const char *webcmd[]     = { "surf-private", NULL };
-static const char *twebcmd[]    = { "surf-private", "tabbed", NULL };
 static const char *fwebcmd[]    = { "firefox", NULL };
 static const char *muttcmd[]    = { "muttcmd", NULL };
 static const char *torrentcmd[] = { "torrentcmd", NULL };
@@ -103,8 +99,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
+	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	//{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -114,13 +110,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = fwebcmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = viscmd } },
 	{ MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nyxcmd } },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = temacscmd } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = twebcmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = tviscmd } },
 	{ MODKEY|ShiftMask,             XK_y,      spawn,          {.v = tytcmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muttcmd } },
