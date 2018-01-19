@@ -18,12 +18,14 @@ desc_option_copyleftie="Apply copyleftie's patches and config.h"
 pre_build() {
 	if [ "$build_option_copyleftie" ] ; then
 		cp ${FILESDIR}/config.h.copyleftie config.h
+
+		sed -i -e 's|1024 / 1024|1024|g' -e 's|%f|%.0f|g' components/ram.c
 	else
 		cp ${FILESDIR}/config.h config.h
 	fi
 	
-	sed -i 's|^CFLAGS *=|override CFLAGS +=|g' config.mk
-	sed -i 's|^LDFLAGS *=|override LDFLAGS +=|g' config.mk
+	sed -i -e 's|^CFLAGS *=|override CFLAGS +=|g' \
+		-e 's|^LDFLAGS *=|override LDFLAGS +=|g' config.mk
 }
 
 post_install() {
