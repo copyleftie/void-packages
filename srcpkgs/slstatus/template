@@ -20,6 +20,14 @@ pre_build() {
 		cp ${FILESDIR}/config.h.copyleftie config.h
 
 		sed -i -e 's|1024 / 1024|1024|g' -e 's|%f|%.0f|g' components/ram.c
+		sed -i -e '/components\/disk/d' -e '/components\/entropy/d' \
+			-e '/components\/hostname/d' -e '/components\/ip/d' \
+			-e '/components\/kernel_release/d' \
+			-e '/components\/keyboard_indicators/d' \
+			-e '/components\/load_avg/d' -e '/components\/num_files/d' \
+			-e '/components\/run_command/d' -e '/components\/swap/d' \
+			-e '/components\/temperature/d' -e '/components\/uptime/d' \
+			-e '/components\/user/d' -e '/components\/volume/d' Makefile
 	else
 		cp ${FILESDIR}/config.h config.h
 	fi
