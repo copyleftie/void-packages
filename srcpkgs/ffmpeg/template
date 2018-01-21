@@ -52,7 +52,7 @@ do_configure() {
 		$(vopt_if faac '--enable-nonfree --enable-libfaac') --disable-jack \
 		$(vopt_if fdk_aac '--enable-nonfree --enable-libfdk-aac') \
 		--disable-libopencore_amrnb --disable-libopencore_amrwb \
-		--disable-libopenjpeg --enable-postproc ${_args} \
+		--disable-libopenjpeg --enable-postproc ${_args} --enable-small \
 		$(vopt_if x265 '--enable-libx265' '--disable-libx265') \
 		$(vopt_if v4l2 '--enable-libv4l2' '--disable-libv4l2') \
 		$(vopt_enable vaapi) $(vopt_enable vdpau) --enable-libtheora \
