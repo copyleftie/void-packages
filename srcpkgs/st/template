@@ -6,7 +6,7 @@ build_style=gnu-makefile
 make_use_env=compliant
 hostmakedepends="pkg-config"
 makedepends="fontconfig-devel libX11-devel libXft-devel"
-depends="ncurses"
+depends="ncurses st-terminfo-${version}_${revision}"
 short_desc="Simple terminal implementation for X"
 maintainer='Juan RP <xtraeme@voidlinux.eu>'
 license="MIT"
@@ -27,7 +27,6 @@ pre_build() {
 	if [ "$build_option_copyleftie" ] ; then
 		cp ${FILESDIR}/config.h.copyleftie config.h
 		patch -Nl < ${FILESDIR}/clipboard.patch
-		# patch -NRl < dracula.patch
 	else
 		cp ${FILESDIR}/config.h config.h
 	fi
@@ -37,4 +36,12 @@ post_install() {
 	vinstall st.info 644 usr/share/terminfo/s st.terminfo
 	vdoc README
 	vlicense LICENSE
+}
+
+st-terminfo_package() {
+	short_desc+=" - terminfo data"
+	noarch=yes
+	pkg_install() {
+		vmove usr/share/terminfo
+	}
 }

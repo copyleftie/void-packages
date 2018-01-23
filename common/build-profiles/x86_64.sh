@@ -1,4 +1,4 @@
-XBPS_TARGET_CFLAGS="-march=ivybridge"
+XBPS_TARGET_CFLAGS="-mtune=generic"
 XBPS_TARGET_CXXFLAGS="$XBPS_TARGET_CFLAGS"
 XBPS_TARGET_FFLAGS=""
-XBPS_TRIPLET="x86_64-pc-linux-gnu"
+XBPS_TRIPLET="x86_64-unknown-linux-gnu"
