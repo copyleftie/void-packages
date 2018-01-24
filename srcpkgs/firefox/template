@@ -100,12 +100,6 @@ do_install() {
 	DESTDIR="$DESTDIR" ./mach install
 
 	vinstall ${FILESDIR}/vendor.js 644 usr/lib/firefox/browser/defaults/preferences
-	vinstall ${FILESDIR}/firefox.desktop 644 usr/share/applications
-
-	for i in 16x16 22x22 24x24 32x32 48x48 256x256; do
-		vinstall ${wrksrc}/browser/branding/official/default${i%x*}.png 644 \
-			usr/share/icons/hicolor/${i}/apps firefox.png
-	done
 
 	# Use system-provided dictionaries
 	rm -rf ${DESTDIR}/usr/lib/firefox/{dictionaries,hyphenation}
