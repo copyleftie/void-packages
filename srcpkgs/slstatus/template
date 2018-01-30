@@ -9,7 +9,12 @@ license="ISC"
 homepage="https://git.nulltime.net/slstatus"
 distfiles="https://git.suckless.org/slstatus/snapshot/slstatus-master.tar.gz"
 wrksrc="slstatus-master"
-makedepends="alsa-lib-devel libX11-devel"
+makedepends="libX11-devel"
+if [ "$build_option_copyleftie" ] ; then
+	true
+else
+	makedepends+=" alsa-lib-devel"
+fi
 checksum=fd4ded137c68c3e92e4c8cb21ef23cba67ed1e24af26351a7864e76df0865385
 
 build_options="copyleftie"
