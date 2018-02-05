@@ -59,6 +59,7 @@ const char tags[][2] = { "1" };
 #include "tile.c"
 #include "grid.c"
 #include "bstack.c"
+#include "fullscreen.c"
 
 /* by default the first layout entry is used */
 static Layout layouts[] = {
