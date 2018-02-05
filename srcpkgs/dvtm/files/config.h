@@ -42,7 +42,7 @@ static Color colors[] = {
 /* number of clients in master area */
 #define NMASTER 1
 /* scroll back buffer size in lines */
-#define SCROLL_HISTORY 2000
+#define SCROLL_HISTORY 500
 /* printf format string for the tag in the status bar */
 #define TAG_SYMBOL   "[%s]"
 /* curses attributes for the currently selected tags */
@@ -54,19 +54,17 @@ static Color colors[] = {
 /* curses attributes for not selected tags which with urgent windows */
 #define TAG_URGENT (COLOR(BLUE) | A_NORMAL | A_BLINK)
 
-const char tags[][2] = { "1", "2" };
+const char tags[][2] = { "1" };
 
 #include "tile.c"
 #include "grid.c"
 #include "bstack.c"
-#include "fullscreen.c"
 
 /* by default the first layout entry is used */
 static Layout layouts[] = {
 	{ "[]=", tile },
 	{ "+++", grid },
 	{ "TTT", bstack },
-	{ "[ ]", fullscreen },
 };
 
 #define MOD  CTRL('x')
@@ -90,7 +88,6 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'f',          }, { setlayout,      { "[]=" }                   } },
 	{ { MOD, 'g',          }, { setlayout,      { "+++" }                   } },
 	{ { MOD, 'b',          }, { setlayout,      { "TTT" }                   } },
-	{ { MOD, 'm',          }, { setlayout,      { "[ ]" }                   } },
 	{ { MOD, ' ',          }, { setlayout,      { NULL }                    } },
 	{ { MOD, 'i',          }, { incnmaster,     { "+1" }                    } },
 	{ { MOD, 'd',          }, { incnmaster,     { "-1" }                    } },
@@ -126,20 +123,6 @@ static KeyBinding bindings[] = {
 	{ { MOD, MOD,          }, { send,           { (const char []){MOD, 0} } } },
 	{ { KEY_SPREVIOUS,     }, { scrollback,     { "-1" }                    } },
 	{ { KEY_SNEXT,         }, { scrollback,     { "1"  }                    } },
-	{ { MOD, '0',          }, { view,           { NULL }                    } },
-	{ { MOD, KEY_F(1),     }, { view,           { tags[0] }                 } },
-	{ { MOD, KEY_F(2),     }, { view,           { tags[1] }                 } },
-	{ { MOD, KEY_F(3),     }, { view,           { tags[2] }                 } },
-	{ { MOD, KEY_F(4),     }, { view,           { tags[3] }                 } },
-	{ { MOD, KEY_F(5),     }, { view,           { tags[4] }                 } },
-	{ { MOD, 'v', '0'      }, { view,           { NULL }                    } },
-	{ { MOD, 'v', '\t',    }, { viewprevtag,    { NULL }                    } },
-	{ { MOD, 't', '0'      }, { tag,            { NULL }                    } },
-	TAGKEYS( '1',                              0)
-	TAGKEYS( '2',                              1)
-	TAGKEYS( '3',                              2)
-	TAGKEYS( '4',                              3)
-	TAGKEYS( '5',                              4)
 };
 
 static const ColorRule colorrules[] = {
@@ -176,7 +159,6 @@ static const ColorRule colorrules[] = {
  */
 
 #ifdef NCURSES_MOUSE_VERSION
-# define CONFIG_MOUSE /* compile in mouse support if we build against ncurses */
 #endif
 
 #define ENABLE_MOUSE true /* whether to enable mouse events by default */
