@@ -15,7 +15,7 @@ if [ "$build_option_copyleftie" ] ; then
 else
 	makedepends+=" alsa-lib-devel"
 fi
-checksum=fd4ded137c68c3e92e4c8cb21ef23cba67ed1e24af26351a7864e76df0865385
+checksum=d680a0743ef39d4e975979c5cd2f77020e02a0b74bc3043e58f26f8d89e22b3b
 
 build_options="copyleftie"
 desc_option_copyleftie="Apply copyleftie's patches and config.h"
