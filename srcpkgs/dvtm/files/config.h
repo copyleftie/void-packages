@@ -160,6 +160,7 @@ static const ColorRule colorrules[] = {
  */
 
 #ifdef NCURSES_MOUSE_VERSION
+# define CONFIG_MOUSE /* compile in mouse support if we build against ncurses */
 #endif
 
 #define ENABLE_MOUSE true /* whether to enable mouse events by default */
