@@ -43,8 +43,8 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	//{ "TTT",      bstack },
-	//{ "===",      bstackhoriz },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -68,6 +68,7 @@ static const char *permcmd[]    = { "termcmd", "perm", NULL };
 static const char *emacscmd[]   = { "emacscmd", NULL };
 static const char *temacscmd[]  = { "emacscmd", "tabbed", NULL };
 static const char *htopcmd[]    = { "htopcmd", NULL };
+static const char *logcmd[]     = { "logcmd", NULL };
 static const char *muttcmd[]    = { "muttcmd", NULL };
 static const char *nyxcmd[]     = { "nyxcmd", NULL };
 static const char *torrentcmd[] = { "torrentcmd", NULL };
@@ -108,8 +109,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
-	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
-	//{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -122,6 +123,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd } },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = temacscmd } },
 	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = htopcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = logcmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muttcmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nyxcmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = torrentcmd } },

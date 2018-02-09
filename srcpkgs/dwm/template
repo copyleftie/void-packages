@@ -18,7 +18,7 @@ do_build() {
 	if [ "$build_option_copyleftie" ] ; then
 		cp ${FILESDIR}/config.h.copyleftie config.h 
 		patch -Nl < ${FILESDIR}/attachaside.patch
-		# patch -Nl < ${FILESDIR}/bottomstack.patch
+		patch -Nl < ${FILESDIR}/bottomstack.patch
 		# patch -Nl < ${FILESDIR}/fakefullscreen.patch
 		patch -Nl < ${FILESDIR}/uselessgap.patch
 	else
