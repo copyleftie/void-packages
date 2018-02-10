@@ -5,25 +5,15 @@ revision=master
 homepage="http://dwm.suckless.org"
 distfiles="https://git.suckless.org/dwm/snapshot/dwm-master.tar.gz"
 wrksrc="dwm-master"
+patch_args="-Nl"
 makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="A dynamic window manager for X"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="MIT"
 checksum=d72b049178e623fbf5a2f47ff4dbf92a79233267cf2d66e9e4181bdd8cfa9e1f
 
-build_options="copyleftie"
-desc_option_copyleftie="Apply copyleftie's patches and config.h"
-
 do_build() {
-	if [ "$build_option_copyleftie" ] ; then
-		cp ${FILESDIR}/config.h.copyleftie config.h 
-		patch -Nl < ${FILESDIR}/attachaside.patch
-		patch -Nl < ${FILESDIR}/bottomstack.patch
-		# patch -Nl < ${FILESDIR}/fakefullscreen.patch
-		patch -Nl < ${FILESDIR}/uselessgap.patch
-	else
-		cp ${FILESDIR}/config.h config.h
-	fi
+	cp ${FILESDIR}/config.h config.h
 	sed -i "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" config.mk
 	sed -i "/LDFLAGS/s|\-s|$LDFLAGS|g" config.mk
 	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXinerama -lXft -lfontconfig"
