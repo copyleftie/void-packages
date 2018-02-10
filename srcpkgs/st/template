@@ -13,23 +13,14 @@ license="MIT"
 homepage="https://st.suckless.org"
 distfiles="https://git.suckless.org/st/snapshot/st-master.tar.gz"
 wrksrc="st-master"
+patch_args="-Nl"
 checksum=a12d824927332c9f6666b3a432e6dd17f0e8fd51fb4fa8c61a48aee88e91d46a
-
-build_options="copyleftie"
-desc_option_copyleftie="Apply copyleftie's patches and config.h"
 
 pre_build() {
 	# We will use tic after install. See INSTALL.
-	# this does not work for some reason!!
 	sed -i "s/tic -sx st.info//g" Makefile
-	# cp ${FILESDIR}/Makefile Makefile
 	
-	if [ "$build_option_copyleftie" ] ; then
-		cp ${FILESDIR}/config.h.copyleftie config.h
-		patch -Nl < ${FILESDIR}/clipboard.patch
-	else
-		cp ${FILESDIR}/config.h config.h
-	fi
+	cp ${FILESDIR}/config.h config.h
 }
 
 post_install() {
