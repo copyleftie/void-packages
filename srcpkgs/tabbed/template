@@ -13,21 +13,16 @@ maintainer='Juan RP <xtraeme@voidlinux.eu>'
 license="MIT"
 checksum=993a31257046f1d853f02723ec5bf121ffd61d4fa35041aee5a42c7bb05f7dae
 
-build_options="copyleftie"
-desc_option_copyleftie="Apply copyleftie's config.h"
-
 pre_build() {
 	sed -i 's|-O0 ||g' config.mk
 	sed -i 's|^CPPFLAGS =|override CPPFLAGS +=|g' config.mk
 	sed -i 's|^CFLAGS =|override CFLAGS +=|g' config.mk
 	sed -i 's|^LDFLAGS =|override LDFLAGS +=|g' config.mk
+
 	# Remove BSD_SOURCE warning
 	sed -i 's/-D_BSD_SOURCE/-D_DEFAULT_SOURCE/g' config.mk
-	if [ "$build_option_copyleftie" ] ; then
-		cp ${FILESDIR}/config.h.copyleftie config.h
-	else
-		cp ${FILESDIR}/config.h config.h
-	fi
+
+	cp ${FILESDIR}/config.h config.h
 }
 
 do_build() {
