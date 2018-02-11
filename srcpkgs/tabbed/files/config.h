@@ -4,7 +4,7 @@
 static const char font[]        = "Inconsolata:size=11";
 static const char* normbgcolor  = "#231e18";
 static const char* normfgcolor  = "#9d8b70";
-static const char* selbgcolor   = "#48413a";
+static const char* selbgcolor   = "#884c17";
 static const char* selfgcolor   = "#cabcb1";
 static const char* urgbgcolor   = "#231e18";
 static const char* urgfgcolor   = "#d35c5c";

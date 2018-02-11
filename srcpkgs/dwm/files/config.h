@@ -13,10 +13,11 @@ static const char base_01[]         = "#302b25";
 static const char base_02[]         = "#48413a";
 static const char base_03[]         = "#9d8b70";
 static const char base_05[]         = "#cabcb1";
+static const char base_09[]         = "#884c17";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { base_03,   base_00,   base_01 },
-	[SchemeSel]  = { base_05,   base_02,   base_02 },
+	[SchemeSel]  = { base_05,   base_09,   base_02 },
 };
 
 /* tagging */
@@ -61,7 +62,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", base_00, "-nf", base_03, "-sb", base_02, "-sf", base_05, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", base_00, "-nf", base_03, "-sb", base_09, "-sf", base_05, NULL };
 static const char *termcmd[]    = { "termcmd", NULL};
 static const char *permcmd[]    = { "termcmd", "perm", NULL };
 
