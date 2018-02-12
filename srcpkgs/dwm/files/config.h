@@ -63,10 +63,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", base_00, "-nf", base_03, "-sb", base_09, "-sf", base_05, NULL };
-static const char *termcmd[]    = { "termcmd", NULL};
-static const char *permcmd[]    = { "termcmd", "perm", NULL };
 
 /* apps */
+static const char *termcmd[]    = { "termcmd", NULL};
+static const char *permcmd[]    = { "termcmd", "perm", NULL };
 static const char *emacscmd[]   = { "emacscmd", NULL };
 static const char *temacscmd[]  = { "emacscmd", "tabbed", NULL };
 static const char *htopcmd[]    = { "htopcmd", NULL };
@@ -80,19 +80,9 @@ static const char *ytcmd[]      = { "ytcmd", NULL };
 static const char *tytcmd[]     = { "ytcmd", "tabbed", NULL };
 static const char *webcmd[]     = { "firefox", NULL };
 
-/* volume */
-static const char *voldowncmd[] = { "voldown", NULL };
-static const char *volupcmd[]   = { "volup", NULL };
-static const char *mutecmd[]    = { "volmute", NULL };
-
-/* backlight */
-static const char *blupcmd[]    = { "blup", NULL };
-static const char *bldowncmd[]  = { "bldown", NULL };
-
 /* misc. */
 static const char *shutdowncmd[]= { "shutdown", NULL };
 
-#include <X11/XF86keysym.h> /* volume keys, etc. */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -134,13 +124,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
 	{ MODKEY|ShiftMask,             XK_y,      spawn,          {.v = tytcmd } },
-
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldowncmd } },
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volupcmd } },
-
-	{ 0,              XF86XK_MonBrightnessUp,  spawn,          {.v = blupcmd } },
-	{ 0,              XF86XK_MonBrightnessDown,spawn,          {.v = bldowncmd } },
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = mutecmd } },
 
 	{ MODKEY,                       XK_F4,     spawn,          {.v = shutdowncmd } },
 
