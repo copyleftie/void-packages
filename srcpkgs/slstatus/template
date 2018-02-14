@@ -10,32 +10,20 @@ homepage="https://git.nulltime.net/slstatus"
 distfiles="https://git.suckless.org/slstatus/snapshot/slstatus-master.tar.gz"
 wrksrc="slstatus-master"
 makedepends="libX11-devel"
-if [ "$build_option_copyleftie" ] ; then
-	true
-else
-	makedepends+=" alsa-lib-devel"
-fi
 checksum=d680a0743ef39d4e975979c5cd2f77020e02a0b74bc3043e58f26f8d89e22b3b
 
-build_options="copyleftie"
-desc_option_copyleftie="Apply copyleftie's patches and config.h"
-
 pre_build() {
-	if [ "$build_option_copyleftie" ] ; then
-		cp ${FILESDIR}/config.h.copyleftie config.h
+	cp ${FILESDIR}/config.h config.h
 
-		sed -i -e 's|1024 / 1024|1024|g' -e 's|%f|%.0f|g' components/ram.c
-		sed -i -e '/components\/disk/d' -e '/components\/entropy/d' \
-			-e '/components\/hostname/d' -e '/components\/ip/d' \
-			-e '/components\/kernel_release/d' \
-			-e '/components\/keyboard_indicators/d' \
-			-e '/components\/load_avg/d' -e '/components\/num_files/d' \
-			-e '/components\/run_command/d' -e '/components\/swap/d' \
-			-e '/components\/temperature/d' -e '/components\/uptime/d' \
-			-e '/components\/user/d' -e '/components\/volume/d' Makefile
-	else
-		cp ${FILESDIR}/config.h config.h
-	fi
+	sed -i -e 's|1024 / 1024|1024|g' -e 's|%f|%.0f|g' components/ram.c
+	sed -i -e '/components\/disk/d' -e '/components\/entropy/d' \
+		-e '/components\/hostname/d' -e '/components\/ip/d' \
+		-e '/components\/kernel_release/d' \
+		-e '/components\/keyboard_indicators/d' \
+		-e '/components\/load_avg/d' -e '/components\/num_files/d' \
+		-e '/components\/run_command/d' -e '/components\/swap/d' \
+		-e '/components\/temperature/d' -e '/components\/uptime/d' \
+		-e '/components\/user/d' -e '/components\/volume/d' Makefile
 	
 	sed -i -e 's|^CFLAGS *=|override CFLAGS +=|g' \
 		-e 's|^LDFLAGS *=|override LDFLAGS +=|g' config.mk
