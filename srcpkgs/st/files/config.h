@@ -27,6 +27,9 @@ static char vtiden[] = "\033[?6c";
 float cwscale = 1.0;
 float chscale = 1.0;
 
+/* plumbing program */
+static char plumber[] = "plumb.sh";
+
 /*
  * word delimiter string
  *
@@ -163,8 +166,8 @@ unsigned int defaultattr = 11;
  */
 MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_ANY_MOD,     "\031" },
-	{ Button5,              XK_ANY_MOD,     "\005" },
+	{ Button4,              XK_ANY_MOD,      "\031" },
+	{ Button5,              XK_ANY_MOD,      "\005" },
 };
 
 /* Internal keyboard shortcuts. */
@@ -185,6 +188,8 @@ Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  -1} },
 };
 
 /*
