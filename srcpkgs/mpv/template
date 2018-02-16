@@ -9,21 +9,22 @@ license="GPL-2, LGPL-2.1"
 homepage="https://mpv.io"
 build_style=waf
 configure_args="--confdir=/etc/mpv --docdir=/usr/share/examples/mpv
- --enable-dvdread --enable-dvdnav --enable-dvbin --disable-sndio
- --disable-oss-audio --disable-sdl2 --disable-pulse --disable-jack
- --disable-wayland --disable-gl-wayland --disable-libbluray --disable-libv4l2
- --enable-libmpv-shared --disable-vdpau $(vopt_enable smb libsmbclient)
- $(vopt_enable vapoursynth)"
+ --enable-dvdread --enable-dvdnav --enable-cdda --enable-libmpv-shared
+ --enable-dvbin --enable-tv --enable-sndio
+ --disable-oss-audio --disable-sdl2
+ $(vopt_enable smb libsmbclient) $(vopt_enable vapoursynth)"
 hostmakedepends="pkg-config python-docutils perl"
 makedepends="
- ffmpeg-devel libass-devel lcms2-devel libXinerama-devel lua52-devel libXv-devel
- libxkbcommon-devel libva-glx-devel alsa-lib-devel libdvdread-devel
- MesaLib-devel harfbuzz-devel libXScrnSaver-devel libdvdnav-devel libuuid-devel
- libguess-devel libXrandr-devel rubberband-devel $(vopt_if smb samba-devel)
- $(vopt_if vapoursynth vapoursynth-devel)"
+ ffmpeg-devel libass-devel lcms2-devel libXinerama-devel lua52-devel v4l-utils-devel
+ libXv-devel libxkbcommon-devel libva-glx-devel libvdpau-devel alsa-lib-devel
+ pulseaudio-devel libbluray-devel libcdio-paranoia-devel libdvdread-devel
+ MesaLib-devel harfbuzz-devel libXScrnSaver-devel jack-devel libdvdnav-devel
+ wayland-devel libwayland-egl libuuid-devel libguess-devel libXrandr-devel
+ rubberband-devel sndio-devel
+ $(vopt_if smb samba-devel) $(vopt_if vapoursynth vapoursynth-devel)"
 depends="desktop-file-utils hicolor-icon-theme $(vopt_if vapoursynth vapoursynth-mvtools)"
 distfiles="https://github.com/mpv-player/${pkgname}/archive/v${version}.tar.gz"
-checksum=2ad104d83fd3b2b9457716615acad57e479fd1537b8fc5e37bfe9065359b50be
+checksum=aada14e025317b5b3e8e58ffaf7902e8b6e4ec347a93d25a7c10d3579426d795
 
 if [ -z "$CROSS_BUILD" ]; then
 	configure_args+=" --enable-zsh-comp"
