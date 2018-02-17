@@ -94,19 +94,20 @@ static unsigned int tabspaces = 8;
 *
 */
 const char *colorname[] = {
-	"#302b25", /* base01 */
+	"#231e18", /* base00 */
 	"#d35c5c", /* base08 */
 	"#b7ba53", /* base0B */
 	"#e0ac16", /* base0A */
 	"#88a4d3", /* base0D */
 	"#b49368", /* base0F */
 	"#6eb958", /* base0C */
-	"#d7c8bc", /* base06 */
-	"#231e18", /* base00 */
+	"#b4a490", /* base04 */
+
+	"#302b25", /* base01 */
 	"#ca7f32", /* base09 */
 	"#48413a", /* base02 */
 	"#9d8b70", /* base03 */
-	"#b4a490", /* base04 */
+	"#d7c8bc", /* base06 */
 	"#bb90e2", /* base0E */
 	"#cabcb1", /* base05 */
 	"#e4d4c8", /* base07 */
@@ -114,8 +115,8 @@ const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+	"#cabcb1", /* base05 */
+	"#e4d4c8", /* base07 */
 };
 
 /*
