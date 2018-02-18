@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* border pixel of windows */
+static const unsigned int gappx     = 9;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -67,17 +67,8 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 /* apps */
 static const char *termcmd[]    = { "termcmd", NULL};
 static const char *permcmd[]    = { "termcmd", "perm", NULL };
-static const char *emacscmd[]   = { "emacscmd", NULL };
-static const char *temacscmd[]  = { "emacscmd", "tabbed", NULL };
 static const char *htopcmd[]    = { "htopcmd", NULL };
 static const char *logcmd[]     = { "logcmd", NULL };
-static const char *muttcmd[]    = { "muttcmd", NULL };
-static const char *nyxcmd[]     = { "nyxcmd", NULL };
-static const char *torrentcmd[] = { "torrentcmd", NULL };
-static const char *viscmd[]     = { "viscmd", NULL };
-static const char *tviscmd[]    = { "viscmd", "tabbed", NULL };
-static const char *ytcmd[]      = { "ytcmd", NULL };
-static const char *tytcmd[]     = { "ytcmd", "tabbed", NULL };
 static const char *webcmd[]     = { "firefox", NULL };
 
 /* misc. */
@@ -112,18 +103,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd } },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = temacscmd } },
 	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = htopcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = logcmd } },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muttcmd } },
-	{ MODKEY,                       XK_n,      spawn,          {.v = nyxcmd } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = torrentcmd } },
-	{ MODKEY,                       XK_v,      spawn,          {.v = viscmd } },
-	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = tviscmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
-	{ MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
-	{ MODKEY|ShiftMask,             XK_y,      spawn,          {.v = tytcmd } },
 
 	{ MODKEY,                       XK_F4,     spawn,          {.v = shutdowncmd } },
 
