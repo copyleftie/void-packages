@@ -60,19 +60,13 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", base_00, "-nf", base_03, "-sb", base_09, "-sf", base_05, NULL };
 
-/* apps */
 static const char *termcmd[]    = { "termcmd", NULL};
 static const char *permcmd[]    = { "termcmd", "perm", NULL };
-static const char *htopcmd[]    = { "htopcmd", NULL };
-static const char *logcmd[]     = { "logcmd", NULL };
-static const char *webcmd[]     = { "firefox", NULL };
-
-/* misc. */
-static const char *shutdowncmd[]= { "shutdown", NULL };
+static const char *webcmd[]     = { "webcmd", NULL };
+static const char *shutdowncmd[]= { "shutdowncmd", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,10 +97,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = htopcmd } },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = logcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
-
 	{ MODKEY,                       XK_F4,     spawn,          {.v = shutdowncmd } },
 
 	TAGKEYS(                        XK_1,                      0)
