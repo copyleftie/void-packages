@@ -1,0 +1,26 @@
+# Template file for 'mit-scheme-c'
+pkgname=mit-scheme-c
+version=9.2
+revision=1
+short_desc="Implementation of the Scheme programming language"
+maintainer="mcz <emcze@ya.ru>"
+license="GPL-2"
+homepage="https://www.gnu.org/software/mit-scheme/"
+distfiles="${GNU_SITE}/mit-scheme/stable.pkg/${version}/${pkgname}-${version}.tar.gz"
+checksum=4f6a16f9c7d4b4b7bb3aa53ef523cad39b54ae1eaa3ab3205930b6a87759b170
+
+pre_configure() {
+	sed 's/CFLAGS="-O3 ${CFLAGS}"/CFLAGS="${CFLAGS}"/' -i \
+		src/microcode/configure{,.ac}
+}
+
+do_build() {
+	cd ./src
+	./etc/make-liarc.sh --prefix=/usr --exec-prefix=/usr --libdir=/usr/lib
+}
+
+do_install() {
+	cd ./src
+	make DESTDIR="$DESTDIR" install
+	make install
+}
