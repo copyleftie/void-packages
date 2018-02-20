@@ -63,10 +63,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", base_00, "-nf", base_03, "-sb", base_09, "-sf", base_05, NULL };
 
-static const char *termcmd[]    = { "termcmd", NULL};
-static const char *permcmd[]    = { "termcmd", "perm", NULL };
-static const char *webcmd[]     = { "webcmd", NULL };
-static const char *shutdowncmd[]= { "shutdowncmd", NULL };
+static const char *termcmd[]     = { "termcmd", NULL};
+static const char *permcmd[]     = { "termcmd", "perm", NULL };
+static const char *torbcmd[]     = { "torbcmd", NULL };
+static const char *webcmd[]      = { "webcmd", NULL };
+static const char *shutdowncmd[] = { "shutdowncmd", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -97,6 +98,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = torbcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_F4,     spawn,          {.v = shutdowncmd } },
 
