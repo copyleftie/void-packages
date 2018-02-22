@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	{ "mpv",         NULL,       NULL,       0,            1,           -1 },
 	{ "Tor Browser", NULL,       NULL,       0,            1,           -1 },
 	{ "VISUAL",      NULL,       NULL,       0,            1,           -1 },
+	{ NULL,          "VISUAL",   NULL,       0,            1,           -1 },
 	{ NULL,          NULL,       "QEMU",     0,            1,           -1 },
 };
 
