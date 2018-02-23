@@ -67,8 +67,14 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 
 static const char *termcmd[]     = { "termcmd", NULL};
 static const char *permcmd[]     = { "termcmd", "perm", NULL };
-static const char *torbcmd[]     = { "torbcmd", NULL };
 static const char *webcmd[]      = { "webcmd", NULL };
+
+/* temporary-terminal commands */
+static const char *htopcmd[]     = { "tstcmd", "htop", NULL };
+static const char *logcmd[]      = { "stcmd", "no9", "svlogtail", NULL };
+static const char *nyxcmd[]      = { "tstcmd", "nyx", NULL };
+static const char *ytcmd[]       = { "tstcmd", "mpsyt", NULL };
+
 static const char *shutdowncmd[] = { "shutdowncmd", NULL };
 
 static Key keys[] = {
@@ -100,8 +106,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = torbcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
+
+	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = htopcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = logcmd } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = nyxcmd } },
+	{ MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
+
 	{ MODKEY,                       XK_F4,     spawn,          {.v = shutdowncmd } },
 
 	TAGKEYS(                        XK_1,                      0)
