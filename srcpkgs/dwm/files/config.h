@@ -70,10 +70,10 @@ static const char *permcmd[]     = { "termcmd", "perm", NULL };
 static const char *webcmd[]      = { "webcmd", NULL };
 
 /* temporary-terminal commands */
-static const char *htopcmd[]     = { "stcmd", "htop", NULL };
-static const char *logcmd[]      = { "stcmd", "no9", "svlogtail", NULL };
-static const char *muttcmd[]     = { "tstcmd", "neomutt", NULL };
-static const char *nyxcmd[]      = { "stcmd", "no9", "nyx", NULL };
+static const char *htopcmd[]     = { "stcmd",  "htop", NULL };
+static const char *logcmd[]      = { "stcmd",  "no9", "svlogtail", NULL };
+static const char *mailcmd[]     = { "tstcmd", "cmail", NULL };
+static const char *nyxcmd[]      = { "stcmd",  "no9", "nyx", NULL };
 static const char *ytcmd[]       = { "tstcmd", "mpsyt", NULL };
 
 static const char *shutdowncmd[] = { "shutdowncmd", NULL };
@@ -111,7 +111,7 @@ static Key keys[] = {
 
 	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = htopcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = logcmd } },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muttcmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mailcmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nyxcmd } },
 	{ MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
 
