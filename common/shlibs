@@ -1516,7 +1516,7 @@ libsmbsharemodes.so.0 samba-3.6.23_1
 libmysqld.so.18 libmariadbclient-5.5.36_1
 libwscodecs.so.1 libwireshark-2.4.1_1
 libwiretap.so.7 libwireshark-2.4.1_1
-libwireshark.so.10 libwireshark-2.4.1_1
+libwireshark.so.9 libwireshark-2.4.5_1
 libwsutil.so.8 libwireshark-2.4.1_1
 libtaskmanager.so.6 plasma-workspace-5.8.4_1
 libfreerdp-client2.so.2 libfreerdp-2.0.0rc1_1
@@ -1698,12 +1698,15 @@ libjq.so.1 jq-devel-1.4_1
 libcrypto.so.37 libcrypto37-2.3.3_1
 libcrypto.so.38 libcrypto38-2.4.2_1
 libcrypto.so.41 libcrypto41-2.5.3_1
+libcrypto.so.42 libcrypto42-2.6.4_1
 libssl.so.38 libssl38-2.3.3_1
 libssl.so.39 libssl39-2.4.2_1
 libssl.so.43 libssl43-2.5.3_1
+libssl.so.44 libssl44-2.6.4_1
 libtls.so.10 libtls10-2.3.3_1
 libtls.so.11 libtls11-2.4.2_1
 libtls.so.15 libtls15-2.5.3_1
+libtls.so.16 libtls16-2.6.4_1
 libvamp-hostsdk.so.3 libvamp-plugin-sdk-2.2_6
 libportmidi.so portmidi-217_1
 libsox.so.3 sox-14.4.2_1
