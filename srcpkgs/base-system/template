@@ -12,7 +12,7 @@ depends="
  base-files>=0.77 ncurses coreutils findutils diffutils dash grep gzip file sed
  less util-linux which tar man-pages shadow e2fsprogs psmisc procps-ng tzdata
  pciutils usbutils dhcpcd kbd iproute2 iputils iw wpa_supplicant xbps sudo
- ethtool acpid eudev runit-void"
+ ethtool acpid eudev runit-void iana-etc"
 
 case "$XBPS_TARGET_MACHINE" in
 	*-musl) depends+=" musl";;
