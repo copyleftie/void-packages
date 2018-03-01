@@ -70,9 +70,9 @@ static const char *webcmd[]      = { "webcmd", NULL };
 
 /* temporary-terminal commands */
 static const char *htopcmd[]     = { "stcmd",  "htop", NULL };
-static const char *logcmd[]      = { "stcmd",  "no9", "svlogtail", NULL };
+static const char *logcmd[]      = { "stcmd",  "no9 svlogtail", NULL };
 static const char *mailcmd[]     = { "tstcmd", "gmail", NULL };
-static const char *nyxcmd[]      = { "stcmd",  "no9", "nyx", NULL };
+static const char *nyxcmd[]      = { "stcmd",  "no9 nyx", NULL };
 static const char *ytcmd[]       = { "tstcmd", "mpsyt", NULL };
 
 static const char *shutdowncmd[] = { "shutdowncmd", NULL };
