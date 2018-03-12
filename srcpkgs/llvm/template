@@ -35,10 +35,9 @@ checksum="1ff53c915b4e761ef400b803f07261ade637b0c269d99569f18040f3dcee4408
 hostmakedepends="groff perl python zlib-devel libffi-devel swig"
 makedepends="python-devel zlib-devel libffi-devel libedit-devel libxml2-devel binutils-devel libatomic-devel"
 depends="libllvm6.0"
-
-# XXX mips builds fail with 'Error: branch out of range'
 case "$XBPS_TARGET_MACHINE" in
-	mips*) broken="make[2]: *** [lib/Target/ARM/CMakeFiles/LLVMARMCodeGen.dir/build.make:855: lib/Target/ARM/CMakeFiles/LLVMARMCodeGen.dir/ARMInstructionSelector.cpp.o] Error 1" ;;
+	x86_64) : ALLOW DEBUG ;;
+	*) nodebug=yes ;;
 esac
 
 subpackages="clang-tools-extra clang clang-analyzer libllvm6.0"
