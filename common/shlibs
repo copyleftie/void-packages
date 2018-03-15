@@ -74,6 +74,7 @@ libncurses.so.6 ncurses-libs-6.0_1 ignore
 libncurses.so.5 ncurses-libs-6.0_1 ignore
 libncursesw.so.6 ncurses-libs-5.8_1 ignore
 libncursesw.so.5 ncurses-libs-5.8_1 ignore
+libnetcdf.so.13 netcdf-4.6.0_2
 libformw.so.5 ncurses-libs-5.9_13 ignore
 libformw.so.6 ncurses-libs-5.8_1 ignore
 libpanelw.so.5 ncurses-libs-5.9_13 ignore
@@ -1959,11 +1960,11 @@ libfcitx-gclient.so.1 libfcitx-4.2.9.5_1
 libfcitx-utils.so.0 libfcitx-4.2.8_1
 libfcitx-config.so.4 libfcitx-4.2.8_1
 libfcitx-qt.so.0 libfcitx-qt-4.2.8_1
-libFcitxQt5DBusAddons.so.1 fcitx-qt5-1.2.1_1
-libFcitxQt5WidgetsAddons.so.1 fcitx-qt5-1.2.1_1
+libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1.2.1_1
+libFcitxQt5WidgetsAddons.so.1 libfcitx-qt5-1.2.1_1
+libfcitx-qt5.so.0 libfcitx-qt5-0.1.3_1
 liblastfm.so.1 liblastfm-1.0.9_1
 liblastfm_fingerprint.so.1 liblastfm-1.0.9_1
-libfcitx-qt5.so.0 libfcitx-qt5-0.1.3_1
 libdruntime-ldc-debug-shared.so.78 ldc-runtime-1.8.0_1
 libdruntime-ldc-shared.so.78 ldc-runtime-1.8.0_1
 libphobos2-ldc-shared.so.78 ldc-runtime-1.8.0_1
