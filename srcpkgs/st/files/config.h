@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Inconsolata:pixelsize=14:antialias=true:autohint=true";
+char font[] = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
@@ -82,17 +82,6 @@ char termname[] = "st-256color";
  */
 static unsigned int tabspaces = 8;
 
-/*
-* base16-woodland-theme.h 
-*
-* Base16: (https://github.com/chriskempson/base16)
-*
-* Authors:
-*
-* Scheme: Jay Cornwall (https://jcornwall.com)
-* Template: Honza Pokorny <me@honza.ca>
-*
-*/
 const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
