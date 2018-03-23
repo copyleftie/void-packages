@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[] = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 2;
+char font[] = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
+int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -63,7 +63,7 @@ unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char termname[] = "st-256color";
 
 /*
  * spaces per tab
@@ -118,8 +118,8 @@ const char *colorname[] = {
  */
 unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultcs = 256;
+unsigned int defaultrcs = 257;
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
@@ -145,13 +145,6 @@ unsigned int cols = 81;
 unsigned int rows = 24;
 
 /*
- * Default columns and rows numbers
- */
-
-static unsigned int cols = 80;
-static unsigned int rows = 24;
-
-/*
  * Default colour and shape of the mouse cursor
  */
 unsigned int mouseshape = XC_xterm;
@@ -162,7 +155,7 @@ unsigned int mousebg = 0;
  * Color used to display font attributes when fontconfig selected a font which
  * doesn't match the ones requested.
  */
-static unsigned int defaultattr = 11;
+unsigned int defaultattr = 11;
 
 /*
  * Internal mouse shortcuts.
@@ -172,11 +165,17 @@ MouseShortcut mshortcuts[] = {
 	/* button	       mask	    string */
 };
 
+MouseKey mkeys[] = {
+ 	/* button               mask            function        argument */
+	{ Button4,              XK_NO_MOD,      kscrollup,      {.i =  1} },
+	{ Button5,              XK_NO_MOD,      kscrolldown,    {.i =  1} },
+};
+
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
-static Shortcut shortcuts[] = {
+Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },

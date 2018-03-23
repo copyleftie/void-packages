@@ -1,6 +1,6 @@
 # Template file for 'st'
 pkgname=st
-version=0.8
+version=0.8.1
 revision=master
 build_style=gnu-makefile
 make_use_env=compliant
@@ -15,6 +15,7 @@ distfiles="https://git.suckless.org/st/snapshot/st-master.tar.gz"
 wrksrc="st-master"
 patch_args="-Nl"
 checksum=a12d824927332c9f6666b3a432e6dd17f0e8fd51fb4fa8c61a48aee88e91d46a
+
 pre_build() {
 	# We will use tic after install. See INSTALL.
 	sed -i "s/tic -sx st.info//g" Makefile
