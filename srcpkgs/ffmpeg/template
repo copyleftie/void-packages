@@ -1,13 +1,14 @@
 # Template file for 'ffmpeg'
 pkgname=ffmpeg
 version=3.4.2
-revision=2
+revision=3
 short_desc="Decoding, encoding and streaming software"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="GPL-3"
 homepage="http://www.ffmpeg.org"
 distfiles="${homepage}/releases/ffmpeg-${version}.tar.xz"
 checksum=2b92e9578ef8b3e49eeab229e69305f5f4cbc1fdaa22e927fc7fca18acccd740
+broken=yes
 
 hostmakedepends="pkg-config perl yasm"
 makedepends="zlib-devel bzip2-devel freetype-devel alsa-lib-devel libXfixes-devel
