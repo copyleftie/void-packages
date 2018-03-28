@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
-int borderpx = 2;
+static char *font = "Inconsolata:pixelsize=18:antialias=true:autohint=true";
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -24,8 +24,8 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-float cwscale = 1.0;
-float chscale = 1.0;
+static float cwscale = 1.0;
+static float chscale = 1.0;
 
 /*
  * word delimiter string
@@ -35,26 +35,26 @@ float chscale = 1.0;
 char *worddelimiters = " ";
 
 /* selection timeouts (in milliseconds) */
-unsigned int doubleclicktimeout = 300;
-unsigned int tripleclicktimeout = 600;
+static unsigned int doubleclicktimeout = 300;
+static unsigned int tripleclicktimeout = 600;
 
 /* alt screens */
 int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-unsigned int xfps = 120;
-unsigned int actionfps = 30;
+static unsigned int xfps = 120;
+static unsigned int actionfps = 30;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-unsigned int blinktimeout = 0;
+static unsigned int blinktimeout = 800;
 
 /*
  * thickness of underline and bar cursors
  */
-unsigned int cursorthickness = 2;
+static unsigned int cursorthickness = 2;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -63,7 +63,7 @@ unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char termname[] = "st-256color";
+char *termname = "st-256color";
 
 /*
  * spaces per tab
@@ -82,7 +82,8 @@ char termname[] = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-const char *colorname[] = {
+/* Terminal colors (16 first used in escape sequence) */
+static const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
 	"red3",
@@ -108,7 +109,6 @@ const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-
 };
 
 
@@ -118,16 +118,9 @@ const char *colorname[] = {
  */
 unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
-unsigned int defaultcs = 256;
-unsigned int defaultrcs = 257;
+static unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
-/*
- * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. Another logic would only make the simple feature too
- * complex.
- */
-unsigned int defaultitalic = 7;
-unsigned int defaultunderline = 7;
 /*
  * Default shape of cursor
  * 2: Block ("█")
@@ -135,47 +128,43 @@ unsigned int defaultunderline = 7;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-unsigned int cursorshape = 2;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
  */
 
-unsigned int cols = 81;
-unsigned int rows = 24;
+static unsigned int cols = 80;
+static unsigned int rows = 24;
 
 /*
  * Default colour and shape of the mouse cursor
  */
-unsigned int mouseshape = XC_xterm;
-unsigned int mousefg = 7;
-unsigned int mousebg = 0;
+static unsigned int mouseshape = XC_xterm;
+static unsigned int mousefg = 7;
+static unsigned int mousebg = 0;
 
 /*
  * Color used to display font attributes when fontconfig selected a font which
  * doesn't match the ones requested.
  */
-unsigned int defaultattr = 11;
+static unsigned int defaultattr = 11;
 
 /*
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
  */
-MouseShortcut mshortcuts[] = {
-	/* button	       mask	    string */
-};
-
-MouseKey mkeys[] = {
- 	/* button               mask            function        argument */
-	{ Button4,              XK_NO_MOD,      kscrollup,      {.i =  1} },
-	{ Button5,              XK_NO_MOD,      kscrolldown,    {.i =  1} },
+static MouseShortcut mshortcuts[] = {
+	/* button               mask            string */
+	{ Button4,              XK_ANY_MOD,     "\031" },
+	{ Button5,              XK_ANY_MOD,     "\005" },
 };
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
-Shortcut shortcuts[] = {
+static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
@@ -233,7 +222,7 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * Note that if you want to use ShiftMask with selmasks, set this to an other
  * modifier, set to 0 to not use it.
  */
-uint forceselmod = ShiftMask;
+static uint forceselmod = ShiftMask;
 
 /*
  * This is the huge key array which defines all compatibility to the Linux
@@ -459,7 +448,7 @@ static Key key[] = {
  * ButtonRelease and MotionNotify.
  * If no match is found, regular selection is used.
  */
-uint selmasks[] = {
+static uint selmasks[] = {
 	[SEL_RECTANGULAR] = Mod1Mask,
 };
 
@@ -467,8 +456,7 @@ uint selmasks[] = {
  * Printable characters in ASCII, used to estimate the advance width
  * of single wide characters.
  */
-char ascii_printable[] =
+static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
-
