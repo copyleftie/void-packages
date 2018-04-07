@@ -181,7 +181,7 @@ libxfconf-0.so.2 xfconf-4.9.1_1
 libxfce4util.so.7 libxfce4util-4.12.1_1
 libxfce4panel-1.0.so.4 xfce4-panel-4.9.2_1
 libxfce4panel-2.0.so.4 xfce4-panel-4.12.0_1
-libgdbm.so.4 gdbm-1.10_1_1
+libgdbm.so.5 gdbm-1.14_1_1
 libgdbm_compat.so.4 gdbm-1.10_1_1
 libintl.so.8 gettext-libs-0.19.2_1
 libgnuintl.so.8 gettext-libs-0.19.2_1
@@ -893,6 +893,7 @@ libabiword-3.0.so libabiword-3.0.0_1
 libmpg123.so.0 libmpg123-1.13.4_2_1
 libout123.so.0 libmpg123-1.23.0_1
 libopenal.so.1 libopenal-1.13_1
+libalure.so.1 alure-1.2_1
 libalut.so.0 freealut-1.1.0_1
 liblilv-0.so.0 liblilv-0.14.4_1
 libsuil-0.so.0 suil-0.6.4_1
@@ -2197,6 +2198,7 @@ libqtelegram-ae.so.1 libqtelegram-ae-5.0_1
 libtelegramqml.so.1 TelegramQML-0.8.0_1
 libglog.so.0 glog-0.3.4_1
 libzita-convolver.so.3 zita-convolver-3.1.0_1
+libzita-alsa-pcmi.so.0 zita-alsa-pcmi-0.2.0_1
 libpugixml.so.1 pugixml-1.6_1
 libnewt.so.0.52 newt-0.52.18_1
 libgeany.so.0 geany-1.25_1
@@ -2250,6 +2252,7 @@ libkookularGenerator_odt.so.16 calligra-extras-3.1.0_1
 libkookularGenerator_odp.so.16 calligra-extras-3.1.0_1
 libgemini.so.16 calligra-gemini-3.1.0_1
 libfts.so.0 musl-fts-1.2_2
+libucontext.so.0 libucontext-0.1.1_1
 libgavl.so.1 gavl-1.40_1
 libmxml.so.1 mxml-2.9_1
 libKF5Pty.so.5 kpty-5.26.0_1
