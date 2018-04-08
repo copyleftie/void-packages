@@ -1725,6 +1725,8 @@ libportmidi.so portmidi-217_1
 libsox.so.3 sox-14.4.2_1
 libsoxr.so.0 libsoxr-0.1.2_1
 libsoxr-lsr.so.0 libsoxr-0.1.2_1
+libdumb.so.2 dumb-2.0.3_1
+libaldmb.so.2 dumb-2.0.3_1
 libframe.so.6 frame-2.5.0_1
 libgrail.so.6 grail-3.1.0_1
 libgeis.so.1 geis-2.2.16_1
@@ -2648,7 +2650,7 @@ libopenbabel.so.5 openbabel-2.4.1_1
 libavogadro.so.1 avogadro-1.2.0_1
 libavogadro_OpenQube.so.0 avogadro-1.2.0_1
 libcourier-unicode.so.4 courier-unicode-2.0_1
-libzstd.so.1 zstd-1.0.0_1
+libzstd.so.1 libzstd-1.0.0_1
 libudis86.so.0 udis86-devel-1.7.2_3
 libsass.so.1 libsass-3.5.0_1
 libjbig.so.0 jbigkit-libs-2.1_2
@@ -3237,7 +3239,10 @@ libspatialindex_c.so.4 libspatialindex-1.8.5_1
 liboctave.so.4 octave-4.2.1_8
 liboctinterp.so.4 octave-4.2.1_8
 liboctgui.so.2 octave-4.2.1_8
+libpapi.so.5 papi-5.6.0_1
+libpfm.so.4 papi-5.6.0_1
 libfifechan.so.0.1.4 fifechan-0.1.4_1
 libfifechan_sdl.so.0.1.4 fifechan-0.1.4_1
 libfifechan_opengl.so.0.1.4 fifechan-0.1.4_1
 libpolyclipping.so.22 clipper-6.4.2_1
+libSoapySDR.so.0.6 SoapySDR-0.6.1_1
