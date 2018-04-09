@@ -1,7 +1,10 @@
 # Template build file for 'firefox'.
+#
+# THIS PKG MUST BE SYNCHRONIZED WITH "srcpkgs/firefox-i18n".
+#
 pkgname=firefox
 version=59.0.2
-revision=1
+revision=2
 short_desc="Mozilla Firefox web browser"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 homepage="https://www.mozilla.org/firefox/"
@@ -22,11 +25,11 @@ makedepends="nss-devel libjpeg-turbo-devel gtk+-devel gtk+3-devel icu-devel
  $(vopt_if startup_notification startup-notification-devel)
  $(vopt_if xscreensaver libXScrnSaver-devel)
  $(vopt_if sndio sndio-devel)"
-depends="nss>=3.33 desktop-file-utils hicolor-icon-theme"
+depends="nss>=3.35 desktop-file-utils hicolor-icon-theme"
 conflicts="firefox-esr>=0"
 
 build_options="alsa dbus pulseaudio startup_notification xscreensaver sndio"
-build_options_default="alsa dbus pulseaudio startup_notification xscreensaver sndio"
+build_options_default=""
 wrksrc="mozilla-release-FIREFOX_${version//./_}_RELEASE"
 
 post_extract() {
@@ -35,14 +38,6 @@ post_extract() {
 		cp "${FILESDIR}/stab.h" toolkit/crashreporter/google-breakpad/src/
 		;;
 	esac
-
-	# Google API key (see http://www.chromium.org/developers/how-tos/api-keys)
-	# Note: This is for Void Linux use ONLY.
-	echo -n "AIzaSyCIFdBA7eQP43R6kXRwTq7j6Mvj1ITze90" > google-api-key
-
-	# Mozilla API keys (see https://location.services.mozilla.com/api)
-	# Note: This is for Void Linux use ONLY.
-	echo -n "cd894504-7a2a-4263-abff-ff73ee89ffca" > mozilla-api-key
 }
 do_build() {
 	cp "${FILESDIR}/mozconfig" "${wrksrc}/.mozconfig"
@@ -55,9 +50,9 @@ do_build() {
 	esac
 
 	case "$XBPS_TARGET_MACHINE" in
-	x86_64-musl)
-		echo "ac_add_options --host=x86_64-unknown-linux-musl" >>.mozconfig
-		echo "ac_add_options --target=x86_64-unknown-linux-musl" >>.mozconfig
+	x86_64-musl|i686-musl)
+		echo "ac_add_options --host=${XBPS_TRIPLET}" >>.mozconfig
+		echo "ac_add_options --target=${XBPS_TRIPLET}" >>.mozconfig
 		;;
 	esac
 
@@ -89,8 +84,6 @@ do_build() {
 	export MOZ_MAKE_FLAGS="${makejobs}"
 
 	cat <<! >>.mozconfig
-ac_add_options --with-google-api-keyfile="${wrksrc}/google-api-key"
-ac_add_options --with-mozilla-api-keyfile="${wrksrc}/mozilla-api-key"
 ac_add_options $(vopt_enable alsa)
 ac_add_options $(vopt_enable sndio)
 ac_add_options $(vopt_enable dbus)
@@ -106,6 +99,13 @@ do_install() {
 	DESTDIR="$DESTDIR" ./mach install
 
 	vinstall ${FILESDIR}/vendor.js 644 usr/lib/firefox/browser/defaults/preferences
+
+	vinstall ${FILESDIR}/firefox.desktop 644 usr/share/applications
+
+	for i in 16x16 22x22 24x24 32x32 48x48 128x128 256x256; do
+		vinstall ${wrksrc}/browser/branding/official/default${i%x*}.png 644 \
+			usr/share/icons/hicolor/${i}/apps firefox.png
+	done
 
 	# Use system-provided dictionaries
 	rm -rf ${DESTDIR}/usr/lib/firefox/{dictionaries,hyphenation}
