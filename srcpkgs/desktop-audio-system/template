@@ -1,0 +1,12 @@
+# Template file for 'desktop-audio-system'
+pkgname=desktop-audio-system
+version=0.1
+revision=1
+build_style=meta
+homepage="https://www.voidlinux.eu/"
+short_desc="copyleftie's desktop audio meta package for Void Linux"
+maintainer="copyleftie <copyleftie@pm.me>"
+license="Public domain"
+
+depends="
+ alsa-sndio alsa-utils aucatctl sndio"

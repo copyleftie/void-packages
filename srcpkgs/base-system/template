@@ -9,10 +9,17 @@ maintainer="Juan RP <xtraeme@voidlinux.eu>"
 license="Public domain"
 
 depends="
- base-files>=0.77 ncurses coreutils findutils diffutils dash grep gzip file sed
- util-linux which tar man-pages shadow e2fsprogs psmisc procps-ng tzdata
- pciutils usbutils dhcpcd kbd iproute2 iputils iw wpa_supplicant xbps opendoas
- ethtool acpid eudev runit-void iana-etc socklog-void plan9port"
+ base-files>=0.77 ncurses coreutils findutils diffutils libgcc
+ dash bash grep gzip file sed gawk less util-linux which tar man-pages
+ mdocml>=1.13.3 shadow e2fsprogs
+ psmisc procps-ng tzdata pciutils usbutils iana-etc openssh dhcpcd
+ kbd iproute2 iputils iw wpa_supplicant xbps nvi
+ traceroute ethtool acpid eudev runit-void
+ opendoas socklog-void plan9port snooze execline execline-doc
+ s6-portable-utils s6-portable-utils-doc man-pages-devel
+ man-pages-posix xtools git outils nq privoxy tor p7zip fuse abduco
+ dvtm openntpd elfutils-devel pv docx2txt lowdown jq dma mblaze ii
+ sic gnupg2 pinentry-tty pv nyx rtorrent tcc"
 
 case "$XBPS_TARGET_MACHINE" in
 	*-musl) depends+=" musl";;

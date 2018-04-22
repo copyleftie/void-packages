@@ -4,7 +4,7 @@ version=20170527
 revision=1
 build_style=meta
 depends="autoconf automake bc binutils bison ed flex gcc gettext
- groff libtool m4 make patch pkg-config texinfo unzip xz"
+ groff libtool m4 make patch pkgconf texinfo unzip xz"
 case "$XBPS_TARGET_MACHINE" in
 	*-musl) depends+=" musl";;
 	*) depends+=" glibc-devel";;

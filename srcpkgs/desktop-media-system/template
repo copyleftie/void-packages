@@ -1,0 +1,13 @@
+# Template file for 'desktop-media-system'
+pkgname=desktop-media-system
+version=0.1
+revision=1
+build_style=meta
+homepage="https://www.voidlinux.eu/"
+short_desc="copyleftie's desktop media meta package for Void Linux"
+maintainer="copyleftie <copyleftie@pm.me>"
+license="Public domain"
+
+depends="
+ ImageMagick audacity cdparanoia cdrtools gimp mpv pngcrush
+ youtube-viewer"
