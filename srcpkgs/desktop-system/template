@@ -1,0 +1,13 @@
+# Template file for 'desktop-system'
+pkgname=desktop-system
+version=0.1
+revision=1
+build_style=meta
+homepage="https://www.voidlinux.eu/"
+short_desc="copyleftie's desktop system meta package for Void Linux"
+maintainer="copyleftie <copyleftie@pm.me>"
+license="Public domain"
+
+depends="
+ Signal-Desktop desktop-audio-system desktop-media-system
+ qemu sent desktop-wm-system zathura-pdf-mupdf zathura-ps"
