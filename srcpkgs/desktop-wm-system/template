@@ -9,6 +9,6 @@ maintainer="copyleftie <copyleftie@pm.me>"
 license="Public domain"
 
 depends="
- dmenu fonts-croscore-ttf lemonbar-xft light redshift scrot
- slock slstatus st sxhkd sxiv wmutils-core wmutils-opt
- xorg-minimal xrandr xsetroot"
+ dmenu font-inconsolata-ttffonts-croscore-ttf lemonbar-xft
+ light redshift scrot slock slstatus st sxhkd sxiv
+ wmutils-core wmutils-opt xorg-minimal xrandr xsetroot"
