@@ -13,6 +13,7 @@ license="MIT"
 homepage="https://st.suckless.org"
 distfiles="https://dl.suckless.org/${pkgname}/${pkgname}-${version}.tar.gz"
 checksum=c4fb0fe2b8d2d3bd5e72763e80a8ae05b7d44dbac8f8e3bb18ef0161c7266926
+patch_args="-Np1"
 
 pre_build() {
 	cp ${FILESDIR}/config.h config.h
