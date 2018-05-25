@@ -5,7 +5,7 @@ revision=5
 wrksrc="mesa-${version}"
 build_style=gnu-configure
 configure_args="--enable-shared-glapi --enable-gbm
- --enable-gles1 --enable-gles2 --enable-egl --enable-vdpau
+ --enable-gles1 --enable-gles2 --enable-egl
  --enable-xvmc --enable-osmesa --enable-texture-float
  --with-platforms=x11,drm,$(vopt_if wayland wayland)"
 short_desc="Graphics library similar to SGI's OpenGL"
@@ -30,7 +30,7 @@ conf_files="/etc/drirc"
 build_options="wayland"
 
 # Enable all options by default.
-build_options_default="wayland"
+build_options_default=""
 
 # Set subpackages manually to set proper rdeps in 32bit pkgs.
 subpackages="libglapi libgbm libEGL libGLES libOSMesa $(vopt_if wayland libwayland-egl)"
@@ -38,13 +38,12 @@ subpackages="libglapi libgbm libEGL libGLES libOSMesa $(vopt_if wayland libwayla
 case "$XBPS_TARGET_MACHINE" in
 i686*|x86_64*)
 	# Enable all x86 drivers.
-	configure_args+=" --with-gallium-drivers=r300,r600,radeonsi,svga,swrast,nouveau,virgl"
-	configure_args+=" --with-dri-drivers=i915,i965,r200,radeon,nouveau,swrast"
+	configure_args+=" --with-dri-drivers=i915,i965"
 	configure_args+=" --enable-xa --enable-dri3 --enable-nine"
-	configure_args+=" --with-vulkan-drivers=intel,radeon"
+	configure_args+=" --with-vulkan-drivers=intel"
 	configure_args+=" --enable-opencl --enable-opencl-icd"
 	hostmakedepends+=" clang libclc-git"
-	subpackages+=" libxatracker mesa-ati-dri mesa-intel-dri mesa-nouveau-dri"
+	subpackages+=" libxatracker mesa-intel-dri"
 	subpackages+=" mesa-vmwgfx-dri mesa-opencl"
 	;;
 armv7l*)
