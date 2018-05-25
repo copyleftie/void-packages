@@ -10,7 +10,7 @@ homepage="https://git.nulltime.net/slstatus"
 distfiles="https://git.suckless.org/slstatus/snapshot/slstatus-master.tar.gz"
 wrksrc="slstatus-master"
 makedepends="libX11-devel"
-checksum=7a7651810ba872da7f79458d0f4049d1f5c56fac51a7ecce0a464649b511ed2e
+checksum=d680a0743ef39d4e975979c5cd2f77020e02a0b74bc3043e58f26f8d89e22b3b
 
 pre_build() {
 	cp ${FILESDIR}/config.h config.h
