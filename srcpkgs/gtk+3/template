@@ -30,7 +30,7 @@ build_options="broadway colord cups gir wayland x11"
 desc_option_broadway="Enable support for the HTML5 Broadway backend"
 
 # Enable all options by default.
-build_options_default="colord cups broadway wayland x11"
+build_options_default="x11"
 
 # Enable gir only for native builds.
 if [ -z "$CROSS_BUILD" ]; then
