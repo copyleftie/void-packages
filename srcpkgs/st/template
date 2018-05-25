@@ -17,6 +17,10 @@ patch_args="-Np1"
 
 pre_build() {
 	cp ${FILESDIR}/config.h config.h
+	for f in ${FILESDIR}/*.diff; do
+		echo applying patch ${f}
+		patch -sl ${patch_args} -i ${f}
+	done
 	# We will use tic after install. See INSTALL.
 	sed -i '/tic/d' Makefile
 }
