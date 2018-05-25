@@ -28,7 +28,7 @@ checksum=e9189c7da6b2ca0142528eca14f26104ee322f052f8609203d90b60938d8d3f3
 build_options_default="ffmpeg"
 
 case "$XBPS_TARGET_MACHINE" in
-	i686*|x86_64*)  build_options_default+=" opengl pulseaudio sdl2 x11 vulkan";;
+	i686*|x86_64*)  build_options_default+=" opengl sdl2 x11 vulkan";;
 	armv[67]*) makedepends+=" rpi-userland-devel"
 		LDFLAGS="-L${XBPS_CROSS_BASE}/opt/vc/lib -lbcm_host"
 		;;
