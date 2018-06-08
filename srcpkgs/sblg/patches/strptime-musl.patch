@@ -1,0 +1,20 @@
+--- a/grok.c
++++ b/grok.c
+@@ -300,7 +300,7 @@
+ 			memset(&tm, 0, sizeof(struct tm));
+ 			sz = strlen(atcp);
+ 			if (10 == sz) {
+-				erp = strptime(atcp, "%F", &tm);
++				erp = strptime(atcp, "%Y-%m-%d", &tm);
+ 				if (NULL == erp || '\0' != *erp) {
+ 					logerrx(arg, "malformed "
+ 						"ISO 3339 date");
+@@ -308,7 +308,7 @@
+ 				}
+ 				arg->article->isdatetime = 0;
+ 			} else if (20 == sz) {
+-				erp = strptime(atcp, "%FT%TZ", &tm);
++				erp = strptime(atcp, "%Y-%m-%dT%TZ", &tm);
+ 				if (NULL == erp || '\0' != *erp) {
+ 					logerrx(arg, "malformed "
+ 						"ISO 3339 datetime");
