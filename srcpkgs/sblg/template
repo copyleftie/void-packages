@@ -1,14 +1,15 @@
 # Template file for 'sblg'
 pkgname=sblg
-version=0.4.9
+version=0.4.12
 revision=1
 build_style=configure
 configure_args="PREFIX=/usr MANDIR=/usr/share/man"
+patch_args="-Np1"
 makedepends="expat-devel"
 short_desc="Simple off-line blog utility"
 maintainer="John <johnz@posteo.net>"
-license="MIT"
+license="ISC"
 homepage="https://kristaps.bsd.lv/sblg/snapshots/"
 distfiles="https://kristaps.bsd.lv/sblg/snapshots/${pkgname}-${version}.tar.gz"
-checksum=fbbf0e3beb388c2a9e761372f55912e2c9e391f0dd87fa846863c3ea75c50677
+checksum=38d786d5e2b848cb3e0e86ad3ab788d84f1c4cc7cb3047c4486ad49136f28dd1
 nocross="weird configure script"
