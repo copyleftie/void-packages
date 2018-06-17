@@ -811,6 +811,7 @@ libpeas-1.0.so.0 libpeas-1.0.0_2
 libpeas-gtk-1.0.so.0 libpeas-1.0.0_2
 libtotem.so.0 libtotem-3.6.2_1
 libclutter-1.0.so.0 clutter-1.14.0_1
+libavfs.so.0 libavfs-1.0.5_1
 libgjs.so.0 gjs-0.7.11_1
 libgjs-gi.so gjs-0.7.11_1
 libgjs-dbus.so.0 gjs-0.7.11_1
@@ -1445,6 +1446,7 @@ libvlccore.so.9 libvlc-3.0.2_1
 libvlc_vdpau.so.0 libvlc-2.2.0_1
 libvlc_pulse.so.0 libvlc-3.0.2_1
 libvlc_xcb_events.so.0 libvlc-3.0.2_1
+libcmocka.so.0 cmocka-1.1.1_1
 libbtrfs.so.0 libbtrfs-3.12_1
 libecore_audio.so.1 efl-1.12.0_1
 libecore_con.so.1 efl-1.12.0_1
