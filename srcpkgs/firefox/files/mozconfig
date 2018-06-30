@@ -42,7 +42,6 @@ ac_add_options --disable-strip
 ac_add_options --disable-profiling
 ac_add_options --enable-optimize="$CFLAGS"
 ac_add_options --enable-pie
-ac_add_options --enable-hardening
 # needed to enable stylo at runtime by default
 ac_add_options --enable-stylo
 
